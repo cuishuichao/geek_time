@@ -21,8 +21,7 @@ class TestOwnersAdd(TestOwner):
         self.owners.clear("herman")
 
     @pytest.mark.parametrize("owner", [
-        {'telephone': '6085551234', 'city': 'shanghai'},
-        {'telephone': '6085551235', 'city': 'beijing'},
+        {'telephone': '6085551234', 'city': 'shanghai'}
     ])
     def test_add_success(self, owner):
         owner_data = Owner(**owner)
@@ -31,7 +30,6 @@ class TestOwnersAdd(TestOwner):
         owner_data.lastName = 'herman'
 
         r = self.owners.add(owner_data)
-        log.debug(r.text)
         assert r.status_code == 201
 
     @pytest.mark.parametrize("owner", [

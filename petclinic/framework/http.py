@@ -24,10 +24,9 @@ class Request:
         self.host = env[env['default']]
 
         raw = None
-
         if self.type == 'json':
             self.headers['Content-Type'] = 'application/json'
-            if self.data is not None:
+            if self.data is None:
                 raw = None
             else:
                 raw = json.dumps(self.data)
@@ -48,12 +47,13 @@ class Request:
             headers=self.headers,
             data=raw,
             auth=None,
-            proxies={
-                # 'http': 'http://127.0.0.1:8080',
-                # 'https': 'http://127.0.0.1:8080'
-            },
+            # proxies={
+            #      'http': 'http://127.0.0.1:8080',
+            #      'https': 'http://127.0.0.1:8080'
+            # },
             verify=False
         )
+        log.debug(requests_response.text)
         r = Response(requests_response)
         return r
 
