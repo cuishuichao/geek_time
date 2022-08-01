@@ -37,8 +37,8 @@ class Owners:
         request.data = asdict(owner)
         r = request.send()
 
-        log.debug(r.status_code)
         log.debug(r.text)
+
         return r
 
     @staticmethod
@@ -48,8 +48,9 @@ class Owners:
         request.host = 'https://spring-petclinic-rest.k8s.hogwarts.ceshiren.com'
         request.path = f'/petclinic/api/owners/{owner_id}'
         r = request.send()
-        log.debug(r)
+
         log.debug(r.text)
+
         return r
 
     def clear(self, last_name):
