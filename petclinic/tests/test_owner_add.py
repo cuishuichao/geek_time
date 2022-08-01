@@ -21,7 +21,8 @@ class TestOwnersAdd(TestOwner):
         self.owners.clear("herman")
 
     @pytest.mark.parametrize("owner", [
-        {'telephone': '6085551234', 'city': 'shanghai'}
+        {'telephone': '6085551234', 'city': 'shanghai'},
+        {'telephone': '6085551235', 'city': 'beijing'}
     ])
     def test_add_success(self, owner):
         owner_data = Owner(**owner)

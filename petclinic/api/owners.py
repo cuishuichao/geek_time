@@ -27,7 +27,8 @@ class Owners:
         else:
             return []
 
-    def add(self, owner):
+    @staticmethod
+    def add(owner):
         request = Request()
         request.host = 'https://spring-petclinic-rest.k8s.hogwarts.ceshiren.com'
         request.path = '/petclinic/api/owners'
@@ -40,7 +41,8 @@ class Owners:
         log.debug(r.text)
         return r
 
-    def delete(self, owner_id):
+    @staticmethod
+    def delete(owner_id):
         request = Request()
         request.method = 'delete'
         request.host = 'https://spring-petclinic-rest.k8s.hogwarts.ceshiren.com'
