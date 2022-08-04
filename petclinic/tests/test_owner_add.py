@@ -45,7 +45,8 @@ class TestOwnersAdd(TestOwner):
         owner_param = Owner(**owner)
         owner_data.telephone = owner_param.telephone
         owner_data.firstName = owner_param.firstName
-
         r = self.owners.add(owner_data)
+
         log.debug(r.text)
+
         assert r.status_code != 201
